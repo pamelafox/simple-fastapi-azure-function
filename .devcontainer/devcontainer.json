@@ -33,7 +33,7 @@
         "ms-azuretools.vscode-azurefunctions"
     ],
     "forwardPorts": [
-        5000,
+        8000,
         7071
     ],
     "postCreateCommand": "pip3 install --user -r requirements.txt",

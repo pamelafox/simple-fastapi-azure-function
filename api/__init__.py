@@ -1,6 +1,9 @@
+import nest_asyncio
 import azure.functions as func
 
-from .flask_app import app
+from .main import app
 
-def main(req: func.HttpRequest, context) -> func.HttpResponse:
-  return func.WsgiMiddleware(app.wsgi_app).handle(req, context)
+nest_asyncio.apply()
+
+async def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
+    return func.AsgiMiddleware(app).handle(req, context)
