@@ -108,7 +108,7 @@ resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
 
 
 module apiManagementResources 'apimanagement.bicep' = {
-  name: 'applicationinsights-resources'
+  name: 'apimanagement-resources'
   params: {
     prefix: prefix
     location: location
