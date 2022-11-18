@@ -116,7 +116,7 @@ module apiManagementResources 'apimanagement.bicep' = {
     functionAppName: functionApp.name
     functionAppUrl: functionApp.properties.hostNames[0]
     functionAppId: functionApp.id
-    functionAppKey: listKeys('${functionApp.id}/host/default', '2019-08-01').functionKeys.default
+    functionAppKey: functionApp.listKeys().keys[0].value
     appInsightsName: appInsights.name
     appInsightsId: appInsights.id
     appInsightsKey: appInsights.properties.InstrumentationKey
