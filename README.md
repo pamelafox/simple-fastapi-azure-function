@@ -1,6 +1,6 @@
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&repo=pamelafox%2Fsimple-flask-api-azure-function)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&repo=pamelafox%2Fsimple-fastapi-azure-function)
 
-This repository includes a very simple Python Flask HTTP API, made for demonstration purposes only.
+This repository includes a very simple Python FastAPI HTTP API, made for demonstration purposes only.
 
 ## Local development: FastAPI
 
@@ -33,6 +33,8 @@ to test the function locally.
 4. Change the URL to navigate to either the API at `/generate_name` or the docs at `/docs`.
 
 ## Deployment
+
+Navigate back to the root folder (the one with `azure.yaml`) if you're not already there.
 
 Run `azd up`.
 

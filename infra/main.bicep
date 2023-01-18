@@ -28,3 +28,8 @@ module resources 'resources.bicep' = {
     tags: tags
   }
 }
+
+output SERVICE_API_ENDPOINTS array = [
+  'https://${resources.outputs.functionUrl}/docs'
+  '${resources.outputs.apimServiceUrl}/generate_name'
+]

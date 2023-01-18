@@ -141,3 +141,6 @@ resource functionAppProperties 'Microsoft.Web/sites/config@2022-03-01' = {
     apiManagementResources
   ]
 }
+
+output apimServiceUrl string = apiManagementResources.outputs.apimServiceUrl
+output functionUrl string = functionApp.properties.defaultHostName
