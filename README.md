@@ -24,7 +24,8 @@ uvicorn main:app --reload --port=8000
 
 Since this project is designed to be deployed to Azure Functions,
 you can also use the local emulator from Azure Functions Core Tools
-to test the function locally.
+to test the function locally. 
+⚠️ If you're on an Apple M1/M2, the function emulator will [probably not work](https://github.com/Azure/azure-functions-python-worker/issues/915).
 
 1. Open this repository in Github Codespaces or VS Code with Remote Devcontainers extension.
 2. Open the Terminal and make sure you're in the root folder (`simple-fastapi-azure-function`).
