@@ -4,7 +4,7 @@ This repository includes a very simple Python FastAPI HTTP API, made for demonst
 
 ## Local development: FastAPI
 
-1. Open this repository in Github Codespaces or VS Code with Remote Devcontainers extension.
+1. Open this repository in Github Codespaces or VS Code with Remote Dev Containers extension.
 2. Open the Terminal and navigate to the `api` directory.
 
 ```console
@@ -14,7 +14,7 @@ cd api
 2. Use [uvicorn](https://www.uvicorn.org/) to run the FastAPI app:
 
 ```console
-uvicorn main:app --reload
+uvicorn main:app --reload --port=8000
 ```
 
 3. Click 'http://127.0.0.1:8000' in the terminal, which should open the website in a new tab.
@@ -34,10 +34,32 @@ to test the function locally.
 
 ## Deployment
 
-Navigate back to the root folder (the one with `azure.yaml`) if you're not already there.
+This repo is set up for deployment to Azure Functions plus Azure API Management,
+using `azure.yaml` and the configuration files in the `infra` folder.
 
-Run `azd up`.
+Steps for deployment:
 
-Navigate to the endpoint displayed in the terminal.
+1. Sign up for a [free Azure account](https://azure.microsoft.com/free/)
+2. Install the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd). (If you open this repository in Codespaces or with the VS Code Dev Containers extension, that part will be done for you.)
+3. Navigate back to the root folder (the one with `azure.yaml`) if you're not already there.
+2. Login to Azure:
 
-To try API v1, append `/generate_name` to the end of the URL.
+    ```shell
+    azd auth login
+    ```
+
+3. Provision and deploy all the resources:
+
+    ```shell
+    azd up
+    ```
+
+    It will prompt you to provide an `azd` environment name (like "django-app"), select a subscription from your Azure account, and select a location (like "eastus"). Then it will provision the resources in your account and deploy the latest code.
+
+4. Once it finishes deploying, find the endpoint URL in the terminal and navigate to that URL, appending either `/generate_name` or `/docs`.
+
+5. When you've made any changes to the app code, you can just run:
+
+    ```shell
+    azd deploy
+    ```
